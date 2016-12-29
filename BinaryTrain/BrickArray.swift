@@ -32,7 +32,7 @@ class BrickArray: UIView {
         }
     }
     
-    var highestExp = 7
+    var highestExp = 6  //is actually the highest exp + 1
     
 
     var shelfWidth: CGFloat{
@@ -45,7 +45,7 @@ class BrickArray: UIView {
         return (bounds.size.height-shelfHeight*4)/CGFloat(pow(2,Double(highestExp+1)))
     }
 
-    var darkBricks = ["burger.png","salami.png","pinecone.png","cactus.png"]
+    var darkBricks = ["raspberry.png","pebble.png","pinecone.png","cactus.png"]
     
     //todo add size to bricks, move position to bottom of array,
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -53,15 +53,17 @@ class BrickArray: UIView {
     var DecimalShow = true
     let spacing = CGFloat(3)
     var width: CGFloat?
+    
     func createBricks(model: [Int]){
         brickTypes = defaults.stringArrayForKey("selectedRows")     //get selected bricktypes from userdefaults
         if brickTypes == nil{
-            brickTypes = ["salami.png"]                             //default to salami
+            brickTypes = ["cheese.png"]                             //default to salami
         }
+
         width = shelfWidth
         var x:CGFloat = 0
         var y:CGFloat = bounds.maxY - shelfHeight * 2 - spacing * 2  //top left of topleft brick
-        let brickOptions = [0,1,2,3,4,5,6]
+        let brickOptions = [0,1,2,3,4,5]
         var secondRow = false                                       //flag to know whether currently drawing second row
         for j in brickOptions{
             if j >= 4 && !secondRow{                                //after 4 bricks, reset x to left and move y down to second row
@@ -79,31 +81,25 @@ class BrickArray: UIView {
             if darkBricks.contains(imgName){                            //check if brick is dark
                 view.dark = true
             }
-            UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0)
-            let img = UIImage(named: imgName)
-            
-            img?.drawInRect(view.bounds)
-            let newImg = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            view.backgroundImageView = UIImageView(image: newImg!)
+            view.imageName = imgName
+
             //view.backgroundColor = UIColor(patternImage: newImg!)
             
-            view.layer.cornerRadius = 3
+            //view.layer.cornerRadius = 3
             view.layer.masksToBounds = true
             view.originalMainBounds = view.bounds
             view.startingCenterPoint = view.center
-            if DecimalShow{
-                view.text = "1" + String(count: j, repeatedValue: Character("0")) + "\n\(view.value!)"
-            }else{
+            
+                view.textWithDecimal = "1" + String(count: j, repeatedValue: Character("0")) + "\n\(view.value!)"
+            
                 view.text = "1" + String(count: j, repeatedValue: Character("0"))
-            }
+            
             
             addSubview(view)
             array.append(view)
             x += width! + 4
         }
         topOfStack = CGPoint(x:bounds.midX, y: bounds.maxY - shelfHeight * 3 - spacing*3)
-       // topleftOfStack = CGPoint(x:0 , y:bounds.maxY - shelfHeight * 5 - spacing * 3)
         let bottomBunRect = CGRect(x: 0, y: bounds.maxY - shelfHeight * 3 - spacing*3, width: bounds.width, height: shelfHeight)
         let bottomBunView = UIView(frame: bottomBunRect)
         UIGraphicsBeginImageContextWithOptions(bottomBunView.frame.size, false, 0.0)
@@ -118,9 +114,7 @@ class BrickArray: UIView {
     
     var total = 0
     var lastBrick =  [PieceView]()
-//    func getBrickSize(value: Int)->CGFloat{
-//        return shelfHeight * CGFloat(value) * 2 * CGFloat(value)
-//    }
+
     var animating = 0         // a stack that keeps track of the number of views animating so that you can't return a brick until all bricks are sent
     var topOfStack: CGPoint?         // center of  bottom block
     var topleftOfStack: CGPoint?
@@ -135,16 +129,11 @@ class BrickArray: UIView {
                     animating += 1
                     pieceGrabbed.selected = true
                     let bs = CGFloat(pieceGrabbed.value!) * unitHeight * 2
-//                    if pieceGrabbed.value! < 8{
-//                        bs += 6.0
-//                    }
+
 
                     pieceGrabbed.dx = topOfStack!.x - (pieceGrabbed.center.x)
                     pieceGrabbed.dy = topOfStack!.y - (pieceGrabbed.center.y + bs/2)
-//
-//                    pieceGrabbed.dx = topleftOfStack!.x - pieceGrabbed.frame.minX + bs/2 - pieceGrabbed.bounds.width/2
-//                    
-//                    pieceGrabbed.dy = topleftOfStack!.y - pieceGrabbed.frame.minY
+
 
                     
                     let identity = CATransform3DIdentity

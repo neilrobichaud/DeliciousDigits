@@ -16,15 +16,16 @@
 		FD50AB2C1D78904600B1F8D9 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50AB2B1D78904600B1F8D9 /* ButtonViewController.swift */; };
 		FD50AB361D7CC6AD00B1F8D9 /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50AB351D7CC6AD00B1F8D9 /* PieceView.swift */; };
 		FD5304781D9C7160009DA25F /* brick.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5304701D9C7160009DA25F /* brick.jpg */; };
-		FD5304791D9C7160009DA25F /* burger.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304711D9C7160009DA25F /* burger.png */; };
-		FD53047A1D9C7160009DA25F /* cheese.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304721D9C7160009DA25F /* cheese.png */; };
-		FD53047B1D9C7160009DA25F /* lettuce.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304731D9C7160009DA25F /* lettuce.png */; };
-		FD53047C1D9C7160009DA25F /* mortadella.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304741D9C7160009DA25F /* mortadella.png */; };
-		FD53047D1D9C7160009DA25F /* salami.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304751D9C7160009DA25F /* salami.png */; };
 		FD53047E1D9C7160009DA25F /* topBun.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304761D9C7160009DA25F /* topBun.png */; };
 		FD5304841D9C75CE009DA25F /* bottomBun.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5304831D9C75CE009DA25F /* bottomBun.png */; };
-		FDA790D51DEA2A5B001DAB5E /* pinecone.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA790D41DEA2A5B001DAB5E /* pinecone.png */; };
-		FDA790D71DEA2A63001DAB5E /* cactus.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA790D61DEA2A63001DAB5E /* cactus.png */; };
+		FD822D601E15A9F300E1200E /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D581E15A9F300E1200E /* banana.png */; };
+		FD822D611E15A9F300E1200E /* cactus.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D591E15A9F300E1200E /* cactus.png */; };
+		FD822D621E15A9F300E1200E /* cheese.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5A1E15A9F300E1200E /* cheese.png */; };
+		FD822D631E15A9F300E1200E /* lettuce.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5B1E15A9F300E1200E /* lettuce.png */; };
+		FD822D641E15A9F300E1200E /* pebble.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5C1E15A9F300E1200E /* pebble.png */; };
+		FD822D651E15A9F300E1200E /* pinecone.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5D1E15A9F300E1200E /* pinecone.png */; };
+		FD822D661E15A9F300E1200E /* raspberry.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5E1E15A9F300E1200E /* raspberry.png */; };
+		FD822D671E15A9F300E1200E /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = FD822D5F1E15A9F300E1200E /* tomato.png */; };
 		FDD13D611D810DBB00927901 /* BrickArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD13D601D810DBB00927901 /* BrickArray.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,15 +41,16 @@
 		FD50AB2B1D78904600B1F8D9 /* ButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonViewController.swift; path = ../ButtonViewController.swift; sourceTree = "<group>"; };
 		FD50AB351D7CC6AD00B1F8D9 /* PieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
 		FD5304701D9C7160009DA25F /* brick.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brick.jpg; sourceTree = "<group>"; };
-		FD5304711D9C7160009DA25F /* burger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burger.png; sourceTree = "<group>"; };
-		FD5304721D9C7160009DA25F /* cheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheese.png; sourceTree = "<group>"; };
-		FD5304731D9C7160009DA25F /* lettuce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lettuce.png; sourceTree = "<group>"; };
-		FD5304741D9C7160009DA25F /* mortadella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mortadella.png; sourceTree = "<group>"; };
-		FD5304751D9C7160009DA25F /* salami.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salami.png; sourceTree = "<group>"; };
 		FD5304761D9C7160009DA25F /* topBun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topBun.png; sourceTree = "<group>"; };
 		FD5304831D9C75CE009DA25F /* bottomBun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomBun.png; sourceTree = "<group>"; };
-		FDA790D41DEA2A5B001DAB5E /* pinecone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinecone.png; sourceTree = "<group>"; };
-		FDA790D61DEA2A63001DAB5E /* cactus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cactus.png; sourceTree = "<group>"; };
+		FD822D581E15A9F300E1200E /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
+		FD822D591E15A9F300E1200E /* cactus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cactus.png; sourceTree = "<group>"; };
+		FD822D5A1E15A9F300E1200E /* cheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheese.png; sourceTree = "<group>"; };
+		FD822D5B1E15A9F300E1200E /* lettuce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lettuce.png; sourceTree = "<group>"; };
+		FD822D5C1E15A9F300E1200E /* pebble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pebble.png; sourceTree = "<group>"; };
+		FD822D5D1E15A9F300E1200E /* pinecone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinecone.png; sourceTree = "<group>"; };
+		FD822D5E1E15A9F300E1200E /* raspberry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raspberry.png; sourceTree = "<group>"; };
+		FD822D5F1E15A9F300E1200E /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
 		FDD13D601D810DBB00927901 /* BrickArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,15 +68,16 @@
 		FD07A70D1D8F20D200F70285 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FD822D581E15A9F300E1200E /* banana.png */,
+				FD822D591E15A9F300E1200E /* cactus.png */,
+				FD822D5A1E15A9F300E1200E /* cheese.png */,
+				FD822D5B1E15A9F300E1200E /* lettuce.png */,
+				FD822D5C1E15A9F300E1200E /* pebble.png */,
+				FD822D5D1E15A9F300E1200E /* pinecone.png */,
+				FD822D5E1E15A9F300E1200E /* raspberry.png */,
+				FD822D5F1E15A9F300E1200E /* tomato.png */,
 				FD5304701D9C7160009DA25F /* brick.jpg */,
-				FD5304711D9C7160009DA25F /* burger.png */,
-				FD5304721D9C7160009DA25F /* cheese.png */,
 				FD5304831D9C75CE009DA25F /* bottomBun.png */,
-				FD5304731D9C7160009DA25F /* lettuce.png */,
-				FDA790D61DEA2A63001DAB5E /* cactus.png */,
-				FDA790D41DEA2A5B001DAB5E /* pinecone.png */,
-				FD5304741D9C7160009DA25F /* mortadella.png */,
-				FD5304751D9C7160009DA25F /* salami.png */,
 				FD5304761D9C7160009DA25F /* topBun.png */,
 			);
 			name = Images;
@@ -180,19 +183,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD822D641E15A9F300E1200E /* pebble.png in Resources */,
+				FD822D611E15A9F300E1200E /* cactus.png in Resources */,
 				FD50AB231D77323100B1F8D9 /* LaunchScreen.storyboard in Resources */,
-				FD53047A1D9C7160009DA25F /* cheese.png in Resources */,
-				FDA790D71DEA2A63001DAB5E /* cactus.png in Resources */,
 				FD50AB201D77323100B1F8D9 /* Assets.xcassets in Resources */,
-				FD53047C1D9C7160009DA25F /* mortadella.png in Resources */,
-				FDA790D51DEA2A5B001DAB5E /* pinecone.png in Resources */,
+				FD822D621E15A9F300E1200E /* cheese.png in Resources */,
+				FD822D651E15A9F300E1200E /* pinecone.png in Resources */,
 				FD53047E1D9C7160009DA25F /* topBun.png in Resources */,
-				FD5304791D9C7160009DA25F /* burger.png in Resources */,
 				FD50AB1E1D77323000B1F8D9 /* Main.storyboard in Resources */,
-				FD53047D1D9C7160009DA25F /* salami.png in Resources */,
-				FD53047B1D9C7160009DA25F /* lettuce.png in Resources */,
+				FD822D661E15A9F300E1200E /* raspberry.png in Resources */,
+				FD822D671E15A9F300E1200E /* tomato.png in Resources */,
 				FD5304781D9C7160009DA25F /* brick.jpg in Resources */,
 				FD5304841D9C75CE009DA25F /* bottomBun.png in Resources */,
+				FD822D631E15A9F300E1200E /* lettuce.png in Resources */,
+				FD822D601E15A9F300E1200E /* banana.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

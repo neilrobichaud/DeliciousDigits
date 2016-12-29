@@ -16,18 +16,72 @@ class PieceView: UIView{
     var startingCenterPoint: CGPoint?
     var label: UILabel?
     var dark = false
+    var imageName: String?{
+        didSet{
+            UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
+            let img = UIImage(named: imageName!)
+            img?.drawInRect(bounds)
+            let newImg = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            backgroundImageView = UIImageView(image: newImg!)
+        }
+    }
+    var textWithDecimal:String?{
+        didSet{
+            reloadLabel(true)
+        }
+    }
     var text: String?{
         didSet{
-            if text != nil{
+            reloadLabel(false)
+        }
+    }
+    var backgroundImageView: UIImageView?{
+        didSet{
+            addSubview(backgroundImageView!)
+        }
+    }
+    var originalMainBounds: CGRect?
+    func redrawToSize(height: CGFloat, width: CGFloat){
+        autoresizesSubviews = true
+
+        let rect = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: width, height: height)
+        bounds = rect
+        label?.frame = rect
+        reloadImage()
+        bringSubviewToFront(label!)
+        
+    }
+    func growify(){
+        bounds = originalMainBounds!
+        label?.frame = originalMainBounds!
+        reloadImage()
+        bringSubviewToFront(label!)
+
+    }
+    func reloadImage(){
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
+        let img = UIImage(named: imageName!)
+        img?.drawInRect(bounds)
+        let newImg = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        backgroundImageView = UIImageView(image: newImg!)
+    }
+    
+    func reloadLabel(withDecimal: Bool){
+        if withDecimal{
+            if textWithDecimal != nil{
                 label = UILabel(frame: bounds)
-                label!.text = text!
+                label!.text = textWithDecimal!
                 if dark == true{
                     label?.textColor = UIColor.whiteColor()
                 }
                 else{
-                label!.textColor = UIColor.blackColor()
+                    label!.textColor = UIColor.blackColor()
                 }
-                label!.font = UIFont.boldSystemFontOfSize(14)
+                //label!.font = UIFont.boldSystemFontOfSize(14)
+                label!.numberOfLines = 0;
+                label!.minimumScaleFactor = 0.001;
                 label!.adjustsFontSizeToFitWidth = true
                 label!.textAlignment = .Center
                 label!.lineBreakMode = .ByWordWrapping
@@ -35,34 +89,30 @@ class PieceView: UIView{
                 label!.shadowColor = UIColor.whiteColor()
                 label!.autoresizingMask = UIViewAutoresizing.FlexibleHeight
                 addSubview(label!)
-                
             }
         }
-    }
-    var backgroundImageView: UIImageView?{
-        didSet{
-            backgroundImageView?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-            addSubview(backgroundImageView!)
-            
+        else{
+            if text != nil{
+                label = UILabel(frame: bounds)
+                label!.text = text!
+                if dark == true{
+                    label?.textColor = UIColor.whiteColor()
+                }
+                else{
+                    label!.textColor = UIColor.blackColor()
+                }
+                //label!.font = UIFont.boldSystemFontOfSize(14)
+                label!.numberOfLines = 0;
+                label!.minimumScaleFactor = 0.001;
+                label!.adjustsFontSizeToFitWidth = true
+                label!.textAlignment = .Center
+                label!.lineBreakMode = .ByWordWrapping
+                label!.numberOfLines = 0
+                label!.shadowColor = UIColor.whiteColor()
+                label!.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+                addSubview(label!)
+            }
         }
-    }
-    var originalMainBounds: CGRect?
-    func redrawToSize(height: CGFloat, width: CGFloat){
-        autoresizesSubviews = true
-
-//        if value < 8{
-//            adjustedWidth += 6
-//        }
-        let rect = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: width, height: height)
-        bounds = rect
-        label?.frame = rect
-        
-        
-        
-    }
-    func growify(){
-        bounds = originalMainBounds!
-        label?.frame = originalMainBounds!
     }
     
     

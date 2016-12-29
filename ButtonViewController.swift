@@ -144,7 +144,7 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
     @IBAction func startButton(sender: UIButton) {
         reset()
         inGame = true
-        gameNumber = Int(arc4random_uniform(127)) + 1
+        gameNumber = Int(arc4random_uniform(63)) + 1
         let config = intToBinaryArray(gameNumber!)
         brickArray.model = config
         p2brickArray.model = config

@@ -49,7 +49,7 @@ class OptionsTableViewController: UITableViewController {
         }
     }
     
-    var brickFiles = ["mortadella.png","salami.png","burger.png","cheese.png","lettuce.png","pinecone.png","cactus.png"]
+    var brickFiles = ["banana.png","cactus.png","cheese.png","lettuce.png","pebble.png","pinecone.png","raspberry.png","tomato.png"]
     var selectedRows =  [String]()
     
     
