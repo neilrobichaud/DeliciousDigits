@@ -25,7 +25,7 @@
         <!--Menu-->
         <scene sceneID="OPJ-kj-vFb">
             <objects>
-                <viewController title="Menu" id="Nqe-bs-6Cm" customClass="MenuViewController" customModule="BinaryTrain" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Menu" id="Nqe-bs-6Cm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QWX-cD-HhT"/>
                         <viewControllerLayoutGuide type="bottom" id="aFf-h2-0pz"/>
@@ -219,46 +219,29 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell" textLabel="SBX-hh-vdE" style="IBUITableViewCellStyleDefault" id="nGn-Gd-20S">
-                                        <rect key="frame" x="0.0" y="343" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nGn-Gd-20S" id="t2q-Ba-QM2">
-                                            <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SBX-hh-vdE">
-                                                    <rect key="frame" x="15" y="0.0" width="546" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="OOE-9g-NDh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="decimalSwitch" id="4Wz-5V-8WH">
-                                        <rect key="frame" x="0.0" y="423" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="379" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Wz-5V-8WH" id="dhw-B1-XVI">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-K0-eFq">
-                                                    <rect key="frame" x="543" y="8" width="51" height="27.5"/>
-                                                    <connections>
-                                                        <action selector="toggleDecimal:" destination="qK7-0P-oaz" eventType="valueChanged" id="0qr-r2-ghq"/>
-                                                    </connections>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Show Decimal Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBP-nI-X2n">
                                                     <rect key="frame" x="8" y="11" width="527" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-K0-eFq">
+                                                    <rect key="frame" x="543" y="8" width="51" height="27.5"/>
+                                                    <connections>
+                                                        <action selector="toggleDecimal:" destination="qK7-0P-oaz" eventType="valueChanged" id="0qr-r2-ghq"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0PA-K0-eFq" secondAttribute="trailing" id="69V-sl-6cp"/>
@@ -278,6 +261,9 @@
                             <outlet property="delegate" destination="qK7-0P-oaz" id="hvJ-bs-8BJ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="decimalSwitch" destination="0PA-K0-eFq" id="EgJ-Zn-tHH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmP-HK-tjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

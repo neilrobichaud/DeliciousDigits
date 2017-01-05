@@ -7,18 +7,19 @@
 //
 
 import UIKit
-protocol MyProtocol {
-    func setResultOfBusinessLogic(valueSent: [String])
-    func setDecimal(b:Bool)
-}
 class OptionsTableViewController: UITableViewController {
-    var delegate : MyProtocol?
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
+    
+    var Dswitch: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title  = "Options"
+        Dswitch = defaults.boolForKey("switch")
+        if Dswitch!{
+            decimalSwitch.setOn(true, animated: false)
+        }
+        else{
+            decimalSwitch.setOn(false, animated: false)
+        }
     }
     var defaults = NSUserDefaults.standardUserDefaults()
     
@@ -34,22 +35,20 @@ class OptionsTableViewController: UITableViewController {
         }
         
         
-        
     }
-    var decimal = true
+
     
+    @IBOutlet weak var decimalSwitch: UISwitch!
     @IBAction func toggleDecimal(sender: UISwitch) {
         if sender.on{
-            decimal = true
-            delegate?.setDecimal(true)
+            defaults.setBool(true, forKey: "switch")
         }
         else{
-            decimal = false
-            delegate?.setDecimal(false)
+            defaults.setBool(false, forKey: "switch")
         }
     }
     
-    var brickFiles = ["banana.png","cactus.png","cheese.png","lettuce.png","pebble.png","pinecone.png","raspberry.png","tomato.png"]
+    var brickFiles = ["banana.png","cactus.png","cheese.png","lettuce.png","pebble.png","pinecone.png","raspberry.png"]
     var selectedRows =  [String]()
     
     
@@ -71,6 +70,7 @@ class OptionsTableViewController: UITableViewController {
         
         return newList
     }
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
             return "Topping Choices"

@@ -15,10 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
-            NSUserDefaults.standardUserDefaults().removeObjectForKey(key.0)
-        }
-        return true
+//        for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation(){
+//            NSUserDefaults.standardUserDefaults().removeObjectForKey(key.0)
+//        }
+//        return true
+       // NSUserDefaults.standardUserDefaults().setObject([], forKey: "selectedRows")
+
+            //If app has never been launched...
+            if !NSUserDefaults.standardUserDefaults().boolForKey("isNotFirstLaunch") {
+                //Set autoAdjustSettings and isNotFirstLaunch to true
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "switch")
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isNotFirstLaunch")
+                
+                //Sync NSUserDefaults
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+            
+            return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

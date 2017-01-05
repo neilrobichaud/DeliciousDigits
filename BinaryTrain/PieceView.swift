@@ -16,26 +16,10 @@ class PieceView: UIView{
     var startingCenterPoint: CGPoint?
     var label: UILabel?
     var dark = false
-    var imageName: String?{
-        didSet{
-            UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
-            let img = UIImage(named: imageName!)
-            img?.drawInRect(bounds)
-            let newImg = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            backgroundImageView = UIImageView(image: newImg!)
-        }
-    }
-    var textWithDecimal:String?{
-        didSet{
-            reloadLabel(true)
-        }
-    }
-    var text: String?{
-        didSet{
-            reloadLabel(false)
-        }
-    }
+    var showingDec: Bool?
+    var textWithDecimal:String?
+    var text: String?
+    
     var backgroundImageView: UIImageView?{
         didSet{
             addSubview(backgroundImageView!)
@@ -48,73 +32,48 @@ class PieceView: UIView{
         let rect = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: width, height: height)
         bounds = rect
         label?.frame = rect
-        reloadImage()
+        label?.text = text
         bringSubviewToFront(label!)
         
     }
     func growify(){
         bounds = originalMainBounds!
         label?.frame = originalMainBounds!
-        reloadImage()
+        if showingDec!{
+            label?.text = textWithDecimal
+        }
         bringSubviewToFront(label!)
 
     }
-    func reloadImage(){
-        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
-        let img = UIImage(named: imageName!)
-        img?.drawInRect(bounds)
-        let newImg = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        backgroundImageView = UIImageView(image: newImg!)
-    }
+
     
-    func reloadLabel(withDecimal: Bool){
-        if withDecimal{
-            if textWithDecimal != nil{
-                label = UILabel(frame: bounds)
-                label!.text = textWithDecimal!
-                if dark == true{
-                    label?.textColor = UIColor.whiteColor()
-                }
-                else{
-                    label!.textColor = UIColor.blackColor()
-                }
-                //label!.font = UIFont.boldSystemFontOfSize(14)
-                label!.numberOfLines = 0;
-                label!.minimumScaleFactor = 0.001;
-                label!.adjustsFontSizeToFitWidth = true
-                label!.textAlignment = .Center
-                label!.lineBreakMode = .ByWordWrapping
-                label!.numberOfLines = 0
-                label!.shadowColor = UIColor.whiteColor()
-                label!.autoresizingMask = UIViewAutoresizing.FlexibleHeight
-                addSubview(label!)
-            }
+    func loadLabel(){
+        
+        label = UILabel(frame: bounds) 
+        
+        if showingDec!{
+            label!.text = textWithDecimal!
+
         }
         else{
-            if text != nil{
-                label = UILabel(frame: bounds)
-                label!.text = text!
+            label!.text = text!
+        }
                 if dark == true{
                     label?.textColor = UIColor.whiteColor()
                 }
                 else{
                     label!.textColor = UIColor.blackColor()
                 }
-                //label!.font = UIFont.boldSystemFontOfSize(14)
-                label!.numberOfLines = 0;
-                label!.minimumScaleFactor = 0.001;
-                label!.adjustsFontSizeToFitWidth = true
+                label!.font = UIFont.boldSystemFontOfSize(18)
                 label!.textAlignment = .Center
                 label!.lineBreakMode = .ByWordWrapping
                 label!.numberOfLines = 0
-                label!.shadowColor = UIColor.whiteColor()
-                label!.autoresizingMask = UIViewAutoresizing.FlexibleHeight
                 addSubview(label!)
-            }
-        }
+        
+
+
     }
-    
+
     
     
 }

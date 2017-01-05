@@ -38,25 +38,28 @@ class BrickArray: UIView {
     var shelfWidth: CGFloat{
         return (bounds.size.width-spacing*4)/4
     }
+    var bunHeight: CGFloat{
+        return shelfHeight/2
+    }
     var shelfHeight: CGFloat{
-        return bounds.size.height/40
+        return bounds.size.height/20
     }
     var unitHeight: CGFloat{
-        return (bounds.size.height-shelfHeight*4)/CGFloat(pow(2,Double(highestExp+1)))
+        return (bounds.size.height-shelfHeight*2 - bunHeight*2)/CGFloat(pow(2,Double(highestExp+1)))
     }
 
-    var darkBricks = ["raspberry.png","pebble.png","pinecone.png","cactus.png"]
+    var darkBricks = ["raspberry.png","pebble.png","pinecone.png","cactus.png","lettuce.png"]
     
     //todo add size to bricks, move position to bottom of array,
     let defaults = NSUserDefaults.standardUserDefaults()
     var brickTypes: [String]?
-    var DecimalShow = true
+    var DecimalShow: Bool?
     let spacing = CGFloat(3)
     var width: CGFloat?
     
     func createBricks(model: [Int]){
         brickTypes = defaults.stringArrayForKey("selectedRows")     //get selected bricktypes from userdefaults
-        if brickTypes == nil{
+        if brickTypes == nil || brickTypes?.count == 0{
             brickTypes = ["cheese.png"]                             //default to salami
         }
 
@@ -68,7 +71,7 @@ class BrickArray: UIView {
         for j in brickOptions{
             if j >= 4 && !secondRow{                                //after 4 bricks, reset x to left and move y down to second row
                 secondRow = true
-                x = 0 + shelfWidth/2
+                x = 0 + shelfWidth
                 y += shelfHeight + spacing
             }
             let rect = CGRect(x: x, y: y, width: width!, height: shelfHeight)
@@ -81,26 +84,24 @@ class BrickArray: UIView {
             if darkBricks.contains(imgName){                            //check if brick is dark
                 view.dark = true
             }
-            view.imageName = imgName
+            let newImg = UIImage(named: imgName)
+            view.backgroundColor = UIColor(patternImage: newImg!)
 
-            //view.backgroundColor = UIColor(patternImage: newImg!)
-            
-            //view.layer.cornerRadius = 3
             view.layer.masksToBounds = true
             view.originalMainBounds = view.bounds
             view.startingCenterPoint = view.center
             
-                view.textWithDecimal = "1" + String(count: j, repeatedValue: Character("0")) + "\n\(view.value!)"
-            
-                view.text = "1" + String(count: j, repeatedValue: Character("0"))
-            
+            view.showingDec = DecimalShow   //sets whether the piece shows the decimal value when expanded
+            view.textWithDecimal = "1" + String(count: j, repeatedValue: Character("0")) + "\n\(view.value!)"
+            view.text = "1" + String(count: j, repeatedValue: Character("0"))
+            view.loadLabel()
             
             addSubview(view)
             array.append(view)
             x += width! + 4
         }
-        topOfStack = CGPoint(x:bounds.midX, y: bounds.maxY - shelfHeight * 3 - spacing*3)
-        let bottomBunRect = CGRect(x: 0, y: bounds.maxY - shelfHeight * 3 - spacing*3, width: bounds.width, height: shelfHeight)
+        topOfStack = CGPoint(x:bounds.midX, y: bounds.maxY - shelfHeight * 2 - bunHeight - spacing*3)
+        let bottomBunRect = CGRect(x: 0, y: bounds.maxY - shelfHeight * 2 - bunHeight - spacing*3, width: bounds.width, height: bunHeight)
         let bottomBunView = UIView(frame: bottomBunRect)
         UIGraphicsBeginImageContextWithOptions(bottomBunView.frame.size, false, 0.0)
         let img = UIImage(named: "bottomBun.png")
@@ -251,7 +252,7 @@ class BrickArray: UIView {
     
     var topBunView: UIView?
     func placeTopBun(){
-        let bunView = UIView(frame: (CGRect(x: bounds.minX, y:topOfStack!.y - shelfHeight , width: bounds.width, height: shelfHeight)))
+        let bunView = UIView(frame: (CGRect(x: bounds.minX, y:topOfStack!.y - bunHeight , width: bounds.width, height: bunHeight)))
         UIGraphicsBeginImageContextWithOptions(bunView.frame.size, false, 0.0)
         let img = UIImage(named: "topBun.png")
         

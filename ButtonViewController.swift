@@ -52,8 +52,7 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
 
         }
     }
-    var brickTypes: [String]?
-    var decimalToggle: Bool?
+
     struct brickPatterns {
         static var grass = "grass.png"
         static var stripes = "stripes.jpg"
@@ -64,9 +63,10 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         didSet{
             brickArray.delegate = self
             brickArray.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-            brickArray.brickTypes = brickTypes
             brickArray.playerNum = 1
-            brickArray.DecimalShow = decimalToggle!
+            brickArray.brickTypes = NSUserDefaults.standardUserDefaults().stringArrayForKey("selectedRows")
+            brickArray.DecimalShow = NSUserDefaults.standardUserDefaults().boolForKey("switch")
+
             brickArray.addGestureRecognizer(UITapGestureRecognizer(target: brickArray, action: #selector(BrickArray.tapPiece(_:))))
             
         }
@@ -81,8 +81,8 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         didSet{
             p2brickArray.delegate = self
             p2brickArray.playerNum = 2
-            p2brickArray.brickTypes = brickTypes
-            p2brickArray.DecimalShow = decimalToggle!
+            p2brickArray.brickTypes = NSUserDefaults.standardUserDefaults().stringArrayForKey("selectedRows")
+            p2brickArray.DecimalShow = NSUserDefaults.standardUserDefaults().boolForKey("switch")
             p2brickArray.addGestureRecognizer(UITapGestureRecognizer(target: p2brickArray, action: #selector(BrickArray.tapPiece(_:))))
         }
     }
@@ -139,12 +139,12 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         inGame = false
         gameNumber = nil
     }
-    
+    let maxNum = 63
     
     @IBAction func startButton(sender: UIButton) {
         reset()
         inGame = true
-        gameNumber = Int(arc4random_uniform(63)) + 1
+        gameNumber = Int(arc4random_uniform(UInt32(maxNum))) + 1
         let config = intToBinaryArray(gameNumber!)
         brickArray.model = config
         p2brickArray.model = config
