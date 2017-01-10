@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		FD07A6F71D8B810B00F70285 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
-		FD50AB151D77323000B1F8D9 /* BinaryTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinaryTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD50AB151D77323000B1F8D9 /* DeliciousDigits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliciousDigits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD50AB181D77323000B1F8D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD50AB1D1D77323000B1F8D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD50AB1F1D77323100B1F8D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		FD50AB161D77323000B1F8D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD50AB151D77323000B1F8D9 /* BinaryTrain.app */,
+				FD50AB151D77323000B1F8D9 /* DeliciousDigits.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FD50AB141D77323000B1F8D9 /* BinaryTrain */ = {
+		FD50AB141D77323000B1F8D9 /* DeliciousDigits */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD50AB271D77323100B1F8D9 /* Build configuration list for PBXNativeTarget "BinaryTrain" */;
+			buildConfigurationList = FD50AB271D77323100B1F8D9 /* Build configuration list for PBXNativeTarget "DeliciousDigits" */;
 			buildPhases = (
 				FD50AB111D77323000B1F8D9 /* Sources */,
 				FD50AB121D77323000B1F8D9 /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = BinaryTrain;
+			name = DeliciousDigits;
 			productName = BinaryTrain;
-			productReference = FD50AB151D77323000B1F8D9 /* BinaryTrain.app */;
+			productReference = FD50AB151D77323000B1F8D9 /* DeliciousDigits.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +154,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FD50AB101D77323000B1F8D9 /* Build configuration list for PBXProject "BinaryTrain" */;
+			buildConfigurationList = FD50AB101D77323000B1F8D9 /* Build configuration list for PBXProject "DeliciousDigits" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FD50AB141D77323000B1F8D9 /* BinaryTrain */,
+				FD50AB141D77323000B1F8D9 /* DeliciousDigits */,
 			);
 		};
 /* End PBXProject section */
@@ -322,7 +322,7 @@
 				INFOPLIST_FILE = BinaryTrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = neil.BinaryTrain;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DeliciousDigits;
 			};
 			name = Debug;
 		};
@@ -333,14 +333,14 @@
 				INFOPLIST_FILE = BinaryTrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = neil.BinaryTrain;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DeliciousDigits;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FD50AB101D77323000B1F8D9 /* Build configuration list for PBXProject "BinaryTrain" */ = {
+		FD50AB101D77323000B1F8D9 /* Build configuration list for PBXProject "DeliciousDigits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD50AB251D77323100B1F8D9 /* Debug */,
@@ -349,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD50AB271D77323100B1F8D9 /* Build configuration list for PBXNativeTarget "BinaryTrain" */ = {
+		FD50AB271D77323100B1F8D9 /* Build configuration list for PBXNativeTarget "DeliciousDigits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD50AB281D77323100B1F8D9 /* Debug */,

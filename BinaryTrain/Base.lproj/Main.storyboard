@@ -92,7 +92,7 @@
         <!--Options Table View Controller-->
         <scene sceneID="01U-Df-Rwh">
             <objects>
-                <tableViewController id="qK7-0P-oaz" customClass="OptionsTableViewController" customModule="BinaryTrain" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qK7-0P-oaz" customClass="OptionsTableViewController" customModule="DeliciousDigits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nwz-32-PWo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +272,7 @@
         <!--Button View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ButtonViewController" customModule="BinaryTrain" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ButtonViewController" customModule="DeliciousDigits" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -281,24 +281,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itq-Cn-Eo7">
-                                <rect key="frame" x="277" y="283" width="46" height="33.5"/>
-                                <color key="backgroundColor" red="0.60747350821001911" green="1" blue="0.11483153966043769" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQW-wN-UZ4"/>
-                                </connections>
-                            </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y5X-VO-7WW">
                                 <rect key="frame" x="277" y="324" width="46" height="33"/>
-                                <color key="backgroundColor" red="0.98249977827072144" green="0.37431883811950684" blue="0.017203748226165771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Menu">
                                             <attributes>
+                                                <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="18" name="TrebuchetMS-Bold"/>
                                             </attributes>
@@ -322,7 +312,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-Yz-NLo" customClass="BrickArray" customModule="BinaryTrain" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-Yz-NLo" customClass="BrickArray" customModule="DeliciousDigits" customModuleProvider="target">
                                 <rect key="frame" x="20" y="0.0" width="257" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -338,7 +328,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqI-xI-I00" customClass="BrickArray" customModule="BinaryTrain" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqI-xI-I00" customClass="BrickArray" customModule="DeliciousDigits" customModuleProvider="target">
                                 <rect key="frame" x="323" y="0.0" width="257" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -348,6 +338,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itq-Cn-Eo7">
+                                <rect key="frame" x="277" y="283" width="46" height="33.5"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQW-wN-UZ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -384,6 +385,7 @@
                             <constraint firstItem="j8x-Yz-NLo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qZ8-51-bbE"/>
                             <constraint firstItem="i0h-mH-0re" firstAttribute="top" secondItem="Y5X-VO-7WW" secondAttribute="bottom" constant="8" symbolic="YES" id="tgN-EN-O5I"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="j8x-Yz-NLo" secondAttribute="bottom" id="vBI-wr-kGu"/>
+                            <constraint firstItem="Y5X-VO-7WW" firstAttribute="width" secondItem="itq-Cn-Eo7" secondAttribute="width" id="yae-8n-pns"/>
                             <constraint firstItem="Y5X-VO-7WW" firstAttribute="leading" secondItem="j8x-Yz-NLo" secondAttribute="trailing" constant="8" id="z85-DP-Pfg"/>
                         </constraints>
                         <variation key="default">

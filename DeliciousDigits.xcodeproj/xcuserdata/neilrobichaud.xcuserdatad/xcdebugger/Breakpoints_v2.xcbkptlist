@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BinaryTrain/BrickArray.swift"
-            timestampString = "505329002.929683"
+            timestampString = "505753357.811066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "tapPiece(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BinaryTrain/BrickArray.swift"
-            timestampString = "505329002.929683"
+            timestampString = "505752861.284316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "createBricks(_:)"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "createBricks()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BinaryTrain/BrickArray.swift"
-            timestampString = "495927789.502015"
+            timestampString = "505330403.290986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "BrickArray"
             landmarkType = "3">
          </BreakpointContent>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BinaryTrain/BrickArray.swift"
-            timestampString = "505329002.929683"
+            timestampString = "505752861.284316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "createBricks(_:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "createBricks()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BinaryTrain/BrickArray.swift"
-            timestampString = "505329002.929683"
+            timestampString = "505752861.284316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "tapPiece(_:)"
             landmarkType = "5">
          </BreakpointContent>

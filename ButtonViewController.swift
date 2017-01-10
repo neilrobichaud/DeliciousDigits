@@ -13,14 +13,12 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         if player == 1{
         p1Label.text = "\(brickArray.total)"
             if brickArray.total == gameNumber{
-                brickArray.placeTopBun()
                 winAlert(1)
             }
         }
         else{
         p2Label.text = "\(p2brickArray.total)"
             if p2brickArray.total == gameNumber{
-                p2brickArray.placeTopBun()
                 winAlert(2)
             }
         }
@@ -53,12 +51,6 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         }
     }
 
-    struct brickPatterns {
-        static var grass = "grass.png"
-        static var stripes = "stripes.jpg"
-        
-    }
-
     @IBOutlet weak var brickArray: BrickArray!{
         didSet{
             brickArray.delegate = self
@@ -87,19 +79,6 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         }
     }
 
-    
-    func sideReset(player: Int){
-        if player == 2{
-            p2brickArray.removeAllBricks()
-            p2brickArray.createBricks(intToBinaryArray(gameNumber!))
-        }
-        else if player == 1{
-            brickArray.removeAllBricks()
-            brickArray.createBricks(intToBinaryArray(gameNumber!))
-        }
-        
-        
-    }
     
     var inGame: Bool = false
     
@@ -145,24 +124,15 @@ class ButtonViewController: UIViewController, UIAlertViewDelegate, BrickArrayPro
         reset()
         inGame = true
         gameNumber = Int(arc4random_uniform(UInt32(maxNum))) + 1
-        let config = intToBinaryArray(gameNumber!)
-        brickArray.model = config
-        p2brickArray.model = config
+        
+        brickArray.createBricks()
+        p2brickArray.createBricks()
+
+        brickArray.placeTopBun(gameNumber!)
+        p2brickArray.placeTopBun(gameNumber!)
     }
     
     
-    
-    func intToBinaryArray(num: Int)->[Int]{
-        var array = Array<Int>()
-        var int = num
-        while int > 0{
-            let exp = Int(floor( log2(Double(int)) ))
-            array.insert(exp, atIndex: 0)
-            int = int - Int(pow(2,Double(exp)))
-            //print(exp)
-        }
-        return array
-    }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
 

@@ -14,6 +14,7 @@ class BrickArray: UIView {
     var delegate: BrickArrayProtocol?
     var array = [PieceView]()
     var playerNum : Int?
+    var currentNum: Int?
     func removeAllBricks(){
         for brick in array{
             brick.removeFromSuperview()
@@ -21,15 +22,6 @@ class BrickArray: UIView {
         total = 0
         lastBrick.removeAll()
         array.removeAll()
-    }
-    
-    var model: [Int]?{
-        didSet{
-            createBricks(model!)
-        }
-        willSet{
-            removeAllBricks()
-        }
     }
     
     var highestExp = 6  //is actually the highest exp + 1
@@ -57,7 +49,7 @@ class BrickArray: UIView {
     let spacing = CGFloat(3)
     var width: CGFloat?
     
-    func createBricks(model: [Int]){
+    func createBricks(){
         brickTypes = defaults.stringArrayForKey("selectedRows")     //get selected bricktypes from userdefaults
         if brickTypes == nil || brickTypes?.count == 0{
             brickTypes = ["cheese.png"]                             //default to salami
@@ -160,7 +152,6 @@ class BrickArray: UIView {
                                                     completion: {finished in
                                                         if finished{
                                                             pieceGrabbed.label?.hidden = false
-                                                            
                                                         }
                                                 })
                         },
@@ -202,12 +193,12 @@ class BrickArray: UIView {
                                     weak var weakSelf = self
                                     brick.layer.transform = translation
                                     brick.growify()
-                                    //brick.layer.cornerRadius = weakSelf!.shelfHeight/2
             },
                                    completion: { finished in
                                     if finished{
                                         weak var weakSelf = self
                                         brick.selected = false
+                                        weakSelf!.bringSubviewToFront(brick)
                                         weakSelf!.delegate?.brickAdded(weakSelf!.playerNum!)
                                     }
         })
@@ -219,9 +210,7 @@ class BrickArray: UIView {
             else{
                 index += 1
                 break
-                
             }
-            
         }
         for i in index..<lastBrick.count{
             moveDownBrick(lastBrick[i],originallyReturnedBrick: brick)
@@ -229,6 +218,7 @@ class BrickArray: UIView {
         lastBrick.removeAtIndex(index-1)
         
     }
+    
     func moveDownBrick(brick: PieceView, originallyReturnedBrick: PieceView){
         let dy = CGFloat(originallyReturnedBrick.value!) * unitHeight * 2
 
@@ -251,8 +241,11 @@ class BrickArray: UIView {
     }
     
     var topBunView: UIView?
-    func placeTopBun(){
-        let bunView = UIView(frame: (CGRect(x: bounds.minX, y:topOfStack!.y - bunHeight , width: bounds.width, height: bunHeight)))
+    
+    //places the top bun where it will be when the game is won
+    func placeTopBun(gameNum: Int){
+        let futureTopOfStack = topOfStack!.y - unitHeight*2*CGFloat(gameNum)
+        let bunView = UIView(frame: (CGRect(x: bounds.minX, y:futureTopOfStack - bunHeight , width: bounds.width, height: bunHeight)))
         UIGraphicsBeginImageContextWithOptions(bunView.frame.size, false, 0.0)
         let img = UIImage(named: "topBun.png")
         
@@ -260,9 +253,10 @@ class BrickArray: UIView {
         let newImg = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         bunView.backgroundColor = UIColor(patternImage: newImg!)
-        addSubview(bunView)
+        insertSubview(bunView, atIndex: 0)
         topBunView = bunView
     }
+    //removes the top bun from the view
     func removeTopBun(){
         if topBunView != nil{
             topBunView!.removeFromSuperview()
